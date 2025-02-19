@@ -45,42 +45,42 @@
   #>
 function Display-Text {
     [CmdletBinding()]
-Param (
+    Param (
     [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
-    [string] $Text,
-    [string] $Title = "Display Text"
-)
+        [string] $Text,
+        [string] $Title = "Display Text"
+    )
 
-begin {
-    # Load the necessary assembly for Windows Forms
-    Add-Type -AssemblyName System.Windows.Forms
-}
+    begin {
+        # Load the necessary assembly for Windows Forms
+        Add-Type -AssemblyName System.Windows.Forms
+    }
 
-process {
-    $form = New-Object System.Windows.Forms.Form
-$form.Text = $Title
-$form.Size = New-Object System.Drawing.Size(400, 300)
+    process {
+        $form = New-Object System.Windows.Forms.Form
+        $form.Text = $Title
+        $form.Size = New-Object System.Drawing.Size(400, 300)
 
-$textBox = New-Object System.Windows.Forms.TextBox
-$textBox.Location = New-Object System.Drawing.Point(50, 50)
-$textBox.Size = New-Object System.Drawing.Size(300, 150)
-$textBox.Multiline = $true
-$textBox.ReadOnly = $true
-$textBox.Text = $Text
+        $textBox = New-Object System.Windows.Forms.TextBox
+        $textBox.Location = New-Object System.Drawing.Point(50, 50)
+        $textBox.Size = New-Object System.Drawing.Size(300, 150)
+        $textBox.Multiline = $true
+        $textBox.ReadOnly = $true
+        $textBox.Text = $Text
 
-$copyButton = New-Object System.Windows.Forms.Button
-$copyButton.Location = New-Object System.Drawing.Point(150, 220)
-$copyButton.Size = New-Object System.Drawing.Size(100, 30)
-$copyButton.Text = "Copy to Clipboard"
-$copyButton.Add_Click({
-    [System.Windows.Forms.Clipboard]::SetText($textBox.Text.Trim())
-})
+        $copyButton = New-Object System.Windows.Forms.Button
+        $copyButton.Location = New-Object System.Drawing.Point(150, 220)
+        $copyButton.Size = New-Object System.Drawing.Size(100, 30)
+        $copyButton.Text = "Copy to Clipboard"
+        $copyButton.Add_Click({
+            [System.Windows.Forms.Clipboard]::SetText($textBox.Text.Trim())
+        })
 
-$form.Controls.Add($textBox)
-$form.Controls.Add($copyButton)
+        $form.Controls.Add($textBox)
+        $form.Controls.Add($copyButton)
 
-$form.ShowDialog()
-}
+        $form.ShowDialog()
+    }
 }
 
 Export-ModuleMember -Function Display-Text

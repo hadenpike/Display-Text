@@ -6,14 +6,14 @@ Takes an argument and displays it in a readonly textbox. This cmdlet also create
 
 ## Installation
 
-{% highlight powershell %}
+```powershell
 git clone https://github.com/hadenpike/Display-Text.git C:/users/<user>/Documents/PowerShell/Modules/Display-Text
-{% endhighlight %}
+```
 
 As long as you cloned this repository to a path specified in $env:PSModulePath, you should be good to go. Otherwise, run
-{% highlight powershell %}
+```powershell
 Import-Module -Name /path/to/Display-Text
-{% endhighlight %}
+```
 
 ## Usage
 
@@ -23,10 +23,10 @@ This function is intended to be used in a pipeline. It accepts the following par
 
 ### Examples
 
-{% highlight powershell %}
+```powershell
 # Display some text
 "this is a test" | Display-Text
 
 # Display some text with a custom title
 "this is a test" | Display-Text -Title "Test"
-{% endhighlight %}
+```
