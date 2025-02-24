@@ -17,7 +17,7 @@ Import-Module -Name /path/to/Display-Text
 
 ## Usage
 
-This function is intended to be used in a pipeline. It accepts the following parameters:
+This cmdlet is intended to be used in a pipeline. It accepts the following parameters:
 * Text: The text to display.
 * Title: The title of the window.
 
@@ -26,7 +26,9 @@ This function is intended to be used in a pipeline. It accepts the following par
 ```powershell
 # Display some text
 "this is a test" | Display-Text
+```
 
+```powershell
 # Display some text with a custom title
 "this is a test" | Display-Text -Title "Test"
 ```
